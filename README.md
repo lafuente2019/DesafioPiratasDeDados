@@ -92,4 +92,6 @@ caso queira ver a lista faça o seguinte comando<br/>
 
 faixas<br/>
 
+![capituraFaixa](https://user-images.githubusercontent.com/48107412/135951211-21fba98a-6b77-49d6-9812-ae3da2165a46.png)
+
 

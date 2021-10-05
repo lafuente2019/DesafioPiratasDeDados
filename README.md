@@ -117,6 +117,8 @@ for i in range(0, len(faixas)):<br/>
 caso queira ver a list faça o seguinte comando,br/>
 json_array<br/>
 
+![listdearray](https://user-images.githubusercontent.com/48107412/135952354-47daffcc-a343-4e9d-b22f-ff463d1e3e2a.png)
+
 
      
 

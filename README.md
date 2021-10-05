@@ -37,5 +37,6 @@ vamos primeiro cuidart dos caracteres especiais com o seguinte comando:<br/>
 result = bytes(result, 'utf-8').decode('unicode_escape')<br/>
 
 após executar o comando vamos criar uma função para eliminar os espaços no objeto <br/>
-def trata_dados(input):
+def trata_dados(input):<br/>
     return " ".join(input.split()).replace('> <', '><')<br/>
+com a função criada passe o objeto pela função com o seguinte comando:<br/>    

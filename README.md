@@ -11,3 +11,9 @@ Use a URL https://www2.correios.com.br/sistemas/buscacep/buscaFaixaCep.cfm
 
 ### Requisitos para rodar o codigo
 será necessario instalar algumas biblioteas .
+'''python
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
+import json
+from bs4 import BeautifulSoup
+'''

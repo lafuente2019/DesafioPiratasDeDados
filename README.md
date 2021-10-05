@@ -6,5 +6,5 @@ Use a URL https://www2.correios.com.br/sistemas/buscacep/buscaFaixaCep.cfm
 
 ### Ferramentas utilizada
 
-*linguagem Python
+* Linguagem de programação Python
 * Jupyter Notebook

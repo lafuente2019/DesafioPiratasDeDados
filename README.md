@@ -8,3 +8,6 @@ Use a URL https://www2.correios.com.br/sistemas/buscacep/buscaFaixaCep.cfm
 
 * Linguagem de programação Python
 * Jupyter Notebook
+
+### Requisitos para rodar o codigo
+será necessario instalar algumas biblioteas .

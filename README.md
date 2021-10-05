@@ -61,3 +61,10 @@ por exemplo, o comando a segui irá trazer todos os dados da TAB td onde {'width
 infos = soup.findAll('td', {'width': '100'})<br/>
 
 Após executar o comando acima a variavel "infos" está com os dados armazenados. agora iremos criar uma lista onde iremos armazezar os dados coletados separadamente. Para isso iremos percorrer a variavel com o laço FOR com o seguinte comando:<br/>
+
+for info in infos:<br/>
+    if info.getText() != 'Não codificada por logradouros':<br/>
+        info_list.append(info.getText())<br/>
+
+#### atenção a identação do codigo.
+

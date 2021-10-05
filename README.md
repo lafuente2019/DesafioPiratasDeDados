@@ -95,3 +95,29 @@ faixas<br/>
 ![capituraFaixa](https://user-images.githubusercontent.com/48107412/135951211-21fba98a-6b77-49d6-9812-ae3da2165a46.png)
 
 
+
+Agora iremos criar uma list  e um dicionario para juntar os dados e gerar informação<br/>
+
+json_struct = {}<br/>
+json_array = []<br/>
+
+em seguida  iremos percorrer a faixas com um for e ir armazenando os dados com suas chaves e valores e também já criando um ID<br/>
+basta fazer o seguinte comando:<br/>
+
+for i in range(0, len(faixas)):<br/>
+     json_struct['id'] = str(i+1)<br/>
+     json_struct['faixa_de_cep'] = faixas[i]<br/>
+     json_struct['localidade'] = info_list[i]<br/>
+     
+     json_array.append(json_struct)<br/>
+     
+     json_struct = {}<br/>
+#### atenção a identação do codigo
+
+caso queira ver a list faça o seguinte comando,br/>
+json_array<br/>
+
+
+     
+
+

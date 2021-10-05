@@ -120,6 +120,15 @@ json_array<br/>
 ![listdearray](https://user-images.githubusercontent.com/48107412/135952354-47daffcc-a343-4e9d-b22f-ff463d1e3e2a.png)
 
 
-     
-
+ Com o array list criado é hora de criar nosso arquivo json :) <br/>
+ Para isso vamos executar a seguinte função<br/>
+ 
+ with open("uf_SP.json", "a", encoding='utf8') as file:<br/>
+      for j in json_array:<br/>
+           file.write(json.dumps(j, ensure_ascii=False)+'\n')<br/>
+ 
+ #### atenção a identação do código, o arquivo JSON sera salvo em seu diretório default caso queira salvar em um diretório especifico precisa indicar ocaminho.
+ 
+ 
+ # Obrigado !!!
 

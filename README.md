@@ -72,3 +72,24 @@ caso queira visualizar a list façã o seguinte comando :<br/>
 info_list<br/>
 
 ![capituraLista](https://user-images.githubusercontent.com/48107412/135949847-ef246aca-6f46-46a4-94b0-1ba9a1d7a3ac.png)
+
+
+
+Agora iremos fazer o mesmo passo que fizemos mais acima para pegar os dados de uma TAG com um identificador único<br/>
+iremos coletar os dados da TAG td onde width é igual a 80<br/>
+
+faixa = soup.findAll('td', {'width': '80'})<br/>
+
+Após executar o comando acima a variavel "faixa" estará com os dados armazenados. agora iremos criar uma lista onde iremos armazezar os dados coletados separadamente. Para isso iremos percorrer a variavel com o laço FOR com o seguinte comando:<br/>
+
+faixas = []<br/>
+for item in faixa:<br/>
+    faixas.append(item.getText().strip())<br/>
+
+#### atenção a identação do codigo
+
+caso queira ver a lista faça o seguinte comando<br/>
+
+faixas<br/>
+
+

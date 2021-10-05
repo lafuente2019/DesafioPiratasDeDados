@@ -66,5 +66,8 @@ for info in infos:<br/>
     if info.getText() != 'Não codificada por logradouros':<br/>
         info_list.append(info.getText())<br/>
 
-#### atenção a identação do codigo.
+#### atenção a identação do código
+
+caso queira visualizar a list façã o seguinte comando :<br/>
+info_list
 

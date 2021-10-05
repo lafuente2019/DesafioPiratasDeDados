@@ -17,3 +17,6 @@ será necessario instalar algumas biblioteas e a URL para completar a case
 * from urllib.request import Request, urlopen
 * import json
 *  https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
+
+Apos a import das bibliotecas  crie uma varialvel para guardar a url 
+url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'

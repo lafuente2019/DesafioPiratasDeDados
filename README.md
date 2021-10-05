@@ -10,10 +10,10 @@ Use a URL https://www2.correios.com.br/sistemas/buscacep/buscaFaixaCep.cfm
 * Jupyter Notebook
 
 ### Requisitos para rodar o codigo
-será necessario instalar algumas biblioteas .
-'''python
-from urllib.parse import urlencode
-from urllib.request import Request, urlopen
-import json
-from bs4 import BeautifulSoup
-'''
+será necessario instalar algumas biblioteas e a URL para completar a case
+
+* from bs4 import BeautifulSoup
+* from urllib.parse import urlencode
+* from urllib.request import Request, urlopen
+* import json
+*  https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm

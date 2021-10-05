@@ -35,3 +35,7 @@ agora chegou a hora de começar a lapidar esses dados brutos até acharmos o tã
 
 vamos primeiro cuidart dos caracteres especiais com o seguinte comando:<br/>
 result = bytes(result, 'utf-8').decode('unicode_escape')<br/>
+
+após executar o comando vamos criar uma função para eliminar os espaços no objeto <br/>
+def trata_dados(input):
+    return " ".join(input.split()).replace('> <', '><')<br/>

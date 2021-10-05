@@ -40,3 +40,24 @@ após executar o comando vamos criar uma função para eliminar os espaços no o
 def trata_dados(input):<br/>
     return " ".join(input.split()).replace('> <', '><')<br/>
 com a função criada passe o objeto pela função com o seguinte comando:<br/>    
+
+result = trata_dados(result)<br/>
+
+caso queira ver o resultado do tratamento é só fazer um prit(result)
+
+com os tratamento finalizado é hora de criar o objeto BeautifulSoup para interpretar o HTML com o seguinte comando<br/>
+
+soup =  BeautifulSoup(result, 'lxml')<br/>
+#### OBS caso o comando acima não funcione execute o proximo comando
+soup = BeautifulSoup(result, "result.parser")<br/>
+
+com o obejto criado podemos executar o seguinte comando para organizar as TAGS HTMl<br/>
+print(soup.prettify())<br/>
+
+agora ficara mais facil identificar os dados que iremos coletar da pagina WEB<br/>
+nessa etapa voce terá que encontrar os dados e verificar se oo mesmo tem um identificador único que ajudara a localiza-lo<br/>
+por exemplo, o comando a segui irá trazer todos os dados da TAB td onde {'width': '100'}<br/>
+
+infos = soup.findAll('td', {'width': '100'})<br/>
+
+Após executar o comando acima a variavel "infos" está com os dados armazenados. agora iremos criar uma lista onde iremos armazezar os dados coletados separadamente. Para isso iremos percorrer a variavel com o laço FOR com o seguinte comando:<br/>

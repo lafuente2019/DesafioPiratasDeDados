@@ -63,9 +63,8 @@ infos = soup.findAll('td', {'width': '100'})<br/>
 Após executar o comando acima a variavel "infos" está com os dados armazenados. agora iremos criar uma lista onde iremos armazezar os dados coletados separadamente. Para isso iremos percorrer a variavel com o laço FOR com o seguinte comando:<br/>
 
 for info in infos:<br/>
-    if info.getText() != 'Não codificada por logradouros':<br/>
+    if info.getText() != 'Não codificada por logradouros' and info.getText() != 'Codificado por logradouros' and info.getText() != 'Codificada por logradouros':<br/>
         info_list.append(info.getText())<br/>
-
 #### atenção a identação do código
 
 caso queira visualizar a list façã o seguinte comando :<br/>

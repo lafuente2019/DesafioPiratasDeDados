@@ -29,3 +29,9 @@ result = urlopen(request).read()<br/>
 result = str(result)<br/>
 
 caso queira visualizar o objeto que foi retornado basta fazer um print(result)<br/>
+agora chegou a hora de começar a lapidar esses dados brutos até acharmos o tão esperado ouro <br/>
+
+### Começar a lapidar os dados
+
+vamos primeiro cuidart dos caracteres especiais com o seguinte comando:<br/>
+result = bytes(result, 'utf-8').decode('unicode_escape')<br/>

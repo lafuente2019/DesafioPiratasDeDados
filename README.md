@@ -70,4 +70,4 @@ for info in infos:<br/>
 
 caso queira visualizar a list façã o seguinte comando :<br/>
 info_list
-
+![capituraLista](https://user-images.githubusercontent.com/48107412/135949847-ef246aca-6f46-46a4-94b0-1ba9a1d7a3ac.png)

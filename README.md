@@ -33,18 +33,18 @@ url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
 
 4. Execute o código abaixo para coletar os dados:
 
-def trata_dados(input):
+     def trata_dados(input):
 
-    return " ".join(input.split()).replace('> <', '><')
+       return " ".join(input.split()).replace('> <', '><')
 
-arquivos='arquivo/uf.txt'
+     arquivos='arquivo/uf.txt'
 
-ufs = []
+     ufs = []
 
-with open(arquivos, 'r') as arquivo:
-     uf = arquivo.readlines()
+     with open(arquivos, 'r') as arquivo:
+        uf = arquivo.readlines()
 
-      # Percorre cada linha
+    #Percorre cada linha
      for linha in uf:
         # Remove os espaços em branco e quebra a linha em itens separados por vírgulas
         itens = linha.strip().split(",")

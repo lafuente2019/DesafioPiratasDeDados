@@ -51,11 +51,8 @@ with open(arquivos, 'r') as arquivo:
 
 
 for resultado in ufs:
-    #url de busca por UF dos correios
     url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
-    # criando variavel de input para pesquisar o UF desejado.
     data = {'uf':resultado}
-    # Agora que temos todos os requisitos necessarios já podemos fazer a requisição ao site WEB
     request = Request(url, urlencode(data).encode())
     result = urlopen(request).read()
     result = str(result)
@@ -63,14 +60,10 @@ for resultado in ufs:
     #Tratando os caracteres especiais
     result = bytes(result, 'utf-8').decode('unicode_escape')
     
-    #Passando a pagina web na função de tratamento
     result = trata_dados(result)
     
-    # Obs caso não tenha a biblioteca será necessario instalar com o seguinte comando: pip3 install beautifulsoup4
     soup = BeautifulSoup(result, 'html.parser')
         
-    #acessando o conteudo das tags
-    
     #capiturando as informações da TAG td onde width é igual a 100
     infos = soup.findAll('td', {'width': '100'})
     
@@ -109,3 +102,5 @@ for resultado in ufs:
     #Criando Arquivo JSON
     with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
         file.write(json.dumps(json_array, ensure_ascii=False)+'\n')
+
+

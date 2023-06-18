@@ -33,9 +33,7 @@ url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
 
 4. Execute o código abaixo para coletar os dados:
 
-<<<<<<< HEAD
      def trata_dados(input):
-
        return " ".join(input.split()).replace('> <', '><')
 
      arquivos='arquivo/uf.txt'
@@ -44,19 +42,8 @@ url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
 
      with open(arquivos, 'r') as arquivo:
         uf = arquivo.readlines()
-=======
- def trata_dados(input):
-    return " ".join(input.split()).replace('> <', '><')
 
- arquivos='arquivo/uf.txt'
-
- ufs = []
-
- with open(arquivos, 'r') as arquivo:
-     uf = arquivo.readlines()
->>>>>>> 501da3ef53a8ad6606370d00669ee93c97689af7
-
-    #Percorre cada linha
+     #Percorre cada linha
      for linha in uf:
         # Remove os espaços em branco e quebra a linha em itens separados por vírgulas
         itens = linha.strip().split(",")

@@ -51,10 +51,15 @@ with open(arquivos, 'r') as arquivo:
 
 
 for resultado in ufs:
+
     url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
+
     data = {'uf':resultado}
+
     request = Request(url, urlencode(data).encode())
+
     result = urlopen(request).read()
+    
     result = str(result)
     
     #Tratando os caracteres especiais

@@ -31,8 +31,7 @@ import json
 url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
 
 3. Crie um arquivo txt (uf.txt) com os UFs que você deseja pesquisar,
- 
-separados por vírgula (por exemplo: SP, RJ, CE).
+   separados por vírgula (por exemplo: SP, RJ, CE).
 
 4. Execute o código abaixo para coletar os dados:
 
@@ -53,7 +52,7 @@ separados por vírgula (por exemplo: SP, RJ, CE).
         # Adiciona os itens à lista de resultados
         ufs.extend(itens)
 
-      for resultado in ufs:
+        for resultado in ufs:
 
         url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
     

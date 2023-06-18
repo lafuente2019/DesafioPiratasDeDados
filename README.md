@@ -48,65 +48,62 @@ with open(arquivos, 'r') as arquivo:
         
         # Adiciona os itens à lista de resultados
         ufs.extend(itens)
-
- #Iteração para cada uf
- 
-  for resultado in ufs:
-
-    url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
-
-    data = {'uf':resultado}
-
-    request = Request(url, urlencode(data).encode())
-
-    result = urlopen(request).read()
-
-    result = str(result)
-    
-    #Tratando os caracteres especiais
-    result = bytes(result, 'utf-8').decode('unicode_escape')
-    
-    result = trata_dados(result)
-    
-    soup = BeautifulSoup(result, 'html.parser')
         
-    #capiturando as informações da TAG td onde width é igual a 100
-    infos = soup.findAll('td', {'width': '100'})
+     for resultado in ufs:
+        url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
     
-    info_list = []
+        data = {'uf':resultado}
     
-    #adicionando as informações na lista onde getText() for diferente de 'Não codificada por logradouros'
-    for info in infos:
-        if info.getText() != 'Não codificada por logradouros' and info.getText() != 'Codificado por logradouros' and info.getText() != 'Codificada por logradouros':
-                info_list.append(info.getText())
+        request = Request(url, urlencode(data).encode())
     
-    #capiturando as informações da TAG td onde width é igual a 80
-    faixa = soup.findAll('td', {'width': '80'})
+        result = urlopen(request).read()
     
-    faixas = []
-    #adicionando as informaões na lista eliminando os espaços no começo e no fim 
-    for item in faixa:
-        faixas.append(item.getText().strip())
-    
-    
-    json_struct = {}
-    json_array = []
-    
-    #percorrendo a lista faixa e adicionando as informaçoes em no dicionario e criando o ID 
-    for i in range(0, len(faixas)):
-        json_struct['id'] = str(i+1)
-        json_struct['faixa_de_cep'] = faixas[i]
-        json_struct['localidade'] = info_list[i]
-    
-        #adicionando o dicionario a lista
-        json_array.append(json_struct)
-    
+        result = str(result)
+        
+        #Tratando os caracteres especiais
+        result = bytes(result, 'utf-8').decode('unicode_escape')
+        
+        result = trata_dados(result)
+        
+        soup = BeautifulSoup(result, 'html.parser')
+            
+        #capiturando as informações da TAG td onde width é igual a 100
+        infos = soup.findAll('td', {'width': '100'})
+        
+        info_list = []
+        
+        #adicionando as informações na lista onde getText() for diferente de 'Não codificada por logradouros'
+        for info in infos:
+            if info.getText() != 'Não codificada por logradouros' and info.getText() != 'Codificado por logradouros' and info.getText() != 'Codificada por logradouros':
+                    info_list.append(info.getText())
+        
+        #capiturando as informações da TAG td onde width é igual a 80
+        faixa = soup.findAll('td', {'width': '80'})
+        
+        faixas = []
+        #adicionando as informaões na lista eliminando os espaços no começo e no fim 
+        for item in faixa:
+            faixas.append(item.getText().strip())
+        
+        
         json_struct = {}
+        json_array = []
+        
+        #percorrendo a lista faixa e adicionando as informaçoes em no dicionario e criando o ID 
+        for i in range(0, len(faixas)):
+            json_struct['id'] = str(i+1)
+            json_struct['faixa_de_cep'] = faixas[i]
+            json_struct['localidade'] = info_list[i]
+        
+            #adicionando o dicionario a lista
+            json_array.append(json_struct)
+        
+            json_struct = {}
+        
+            UF = data['uf']
     
-        UF = data['uf']
-
-    #Criando Arquivo JSON
-    with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
-        file.write(json.dumps(json_array, ensure_ascii=False)+'\n')
+        #Criando Arquivo JSON
+        with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
+            file.write(json.dumps(json_array, ensure_ascii=False)+'\n')
 
 

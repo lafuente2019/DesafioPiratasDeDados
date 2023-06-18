@@ -12,7 +12,7 @@ Nesta tarefa, precisarei coletar dados de um site da Web e, em seguida, gravar o
 
 ### Ferramentas utilizadas
 - Linguagem de programação Python
-- Jupyter Notebook
+- Visual studio code
 
 ### Requisitos para rodar o código
 - Bibliotecas: BeautifulSoup, urlencode, Request, urlopen, json

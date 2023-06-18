@@ -1,7 +1,7 @@
 # Desafio Piratas de Dados
 
 ### Objetivo
-Nesta tarefa, você deve coletar dados de um site da Web e, em seguida, gravar os resultados em um arquivo.
+Nesta tarefa, precisarei coletar dados de um site da Web e, em seguida, gravar os resultados em um arquivo.
 
 - Use a URL https://www2.correios.com.br/sistemas/buscacep/buscaFaixaCep.cfm
 - Obtenha dados de pelo menos dois UFs. Quanto mais melhor.
@@ -105,7 +105,7 @@ for resultado in ufs:
         json_struct = {}
     
         UF = data['uf']
-        
+
     #Criando Arquivo JSON
     with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
         file.write(json.dumps(json_array, ensure_ascii=False)+'\n')

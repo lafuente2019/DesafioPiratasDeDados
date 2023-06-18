@@ -20,8 +20,8 @@ será necessario instalar algumas biblioteas e a URL para completar a case
 
 Apos a import das bibliotecas  crie uma varialvel para guardar a url<br/>
 url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'<br/>
-Crie também  uma variavel de input para pesquisar o UF desejado.<br/>
-uf_input = {'UF' : 'SP'}<br/>
+Crie também  um arquivo com os UF que deseja pesquisar.<br/>
+crie o arquivo txt separando por ',' EX SP,RJ,CE<br/>
 
 com as variaveis criada é hora de fazer nossa querisição ao site WEB com os seguintes comandos:<br/>
 request = Request(url, urlencode(uf_input).encode())<br/>

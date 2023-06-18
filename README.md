@@ -35,79 +35,79 @@ url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
 
 4. Execute o código abaixo para coletar os dados:
 
-     def trata_dados(input):
-       return " ".join(input.split()).replace('> <', '><')
+        def trata_dados(input):
+           return " ".join(input.split()).replace('> <', '><')
 
-     arquivos='arquivo/uf.txt'
+        arquivos='arquivo/uf.txt'
 
-     ufs = []
+        ufs = []
 
-     with open(arquivos, 'r') as arquivo:
-        uf = arquivo.readlines()
+        with open(arquivos, 'r') as arquivo:
+            uf = arquivo.readlines()
 
-     #Percorre cada linha
-     for linha in uf:
-        itens = linha.strip().split(",")
+        #Percorre cada linha
+        for linha in uf:
+            itens = linha.strip().split(",")
         
         # Adiciona os itens à lista de resultados
         ufs.extend(itens)
 
         for resultado in ufs:
 
-        url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
+           url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
     
-        data = {'uf':resultado}
+           data = {'uf':resultado}
     
-        request = Request(url, urlencode(data).encode())
+           request = Request(url, urlencode(data).encode())
     
-        result = urlopen(request).read()
+           result = urlopen(request).read()
     
-        result = str(result)
+           result = str(result)
         
-        #Tratando os caracteres especiais
-        result = bytes(result, 'utf-8').decode('unicode_escape')
+           #Tratando os caracteres especiais
+           result = bytes(result, 'utf-8').decode('unicode_escape')
         
-        result = trata_dados(result)
+           result = trata_dados(result)
         
-        soup = BeautifulSoup(result, 'html.parser')
+           soup = BeautifulSoup(result, 'html.parser')
             
-        #capiturando as informações da TAG td onde width é igual a 100
-        infos = soup.findAll('td', {'width': '100'})
+           #capiturando as informações da TAG td onde width é igual a 100
+           infos = soup.findAll('td', {'width': '100'})
         
-        info_list = []
+           info_list = []
         
-        #adicionando as informações na lista onde getText() for diferente de 'Não codificada por logradouros'
-        for info in infos:
-            if info.getText() != 'Não codificada por logradouros' and info.getText() != 'Codificado por logradouros' and info.getText() != 'Codificada por logradouros':
+           #adicionando as informações na lista onde getText() for diferente de 'Não codificada por logradouros'
+           for info in infos:
+               if info.getText() != 'Não codificada por logradouros' and info.getText() != 'Codificado por logradouros' and info.getText() != 'Codificada por logradouros':
                     info_list.append(info.getText())
         
-        #capiturando as informações da TAG td onde width é igual a 80
-        faixa = soup.findAll('td', {'width': '80'})
+           #capiturando as informações da TAG td onde width é igual a 80
+           faixa = soup.findAll('td', {'width': '80'})
         
-        faixas = []
-        #adicionando as informaões na lista eliminando os espaços no começo e no fim 
-        for item in faixa:
-            faixas.append(item.getText().strip())
+           faixas = []
+           #adicionando as informaões na lista eliminando os espaços no começo e no fim 
+           for item in faixa:
+              faixas.append(item.getText().strip())
         
         
-        json_struct = {}
-        json_array = []
-        
-        #percorrendo a lista faixa e adicionando as informaçoes em no dicionario e criando o ID 
-        for i in range(0, len(faixas)):
-            json_struct['id'] = str(i+1)
-            json_struct['faixa_de_cep'] = faixas[i]
-            json_struct['localidade'] = info_list[i]
-        
-            #adicionando o dicionario a lista
-            json_array.append(json_struct)
-        
-            json_struct = {}
-        
-            UF = data['uf']
-    
-        #Criando Arquivo JSON
-        with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
-            file.write(json.dumps(json_array, ensure_ascii=False)+'\n')
-
+           json_struct = {}
+           json_array = []
+           
+           #percorrendo a lista faixa e adicionando as informaçoes em no dicionario e criando o ID 
+           for i in range(0, len(faixas)):
+               json_struct['id'] = str(i+1)
+               json_struct['faixa_de_cep'] = faixas[i]
+               json_struct['localidade'] = info_list[i]
+           
+               #adicionando o dicionario a lista
+               json_array.append(json_struct)
+           
+               json_struct = {}
+           
+               UF = data['uf']
+       
+           #Criando Arquivo JSON
+           with open(f"arquivo/{UF}.json", "w", encoding='utf8') as file:
+               file.write(json.dumps(json_array, ensure_ascii=False)+'\n')
+   
 

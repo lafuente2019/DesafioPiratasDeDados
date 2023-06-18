@@ -53,8 +53,8 @@ separados por vírgula (por exemplo: SP, RJ, CE).
         # Adiciona os itens à lista de resultados
         ufs.extend(itens)
 
-     for resultado in ufs:
-     
+      for resultado in ufs:
+
         url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
     
         data = {'uf':resultado}

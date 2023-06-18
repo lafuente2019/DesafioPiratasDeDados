@@ -45,7 +45,6 @@ url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm
 
      #Percorre cada linha
      for linha in uf:
-        # Remove os espaços em branco e quebra a linha em itens separados por vírgulas
         itens = linha.strip().split(",")
         
         # Adiciona os itens à lista de resultados

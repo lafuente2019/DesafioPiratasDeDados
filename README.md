@@ -49,8 +49,8 @@ with open(arquivos, 'r') as arquivo:
         # Adiciona os itens à lista de resultados
         ufs.extend(itens)
 
-
-for resultado in ufs:
+ #Iteração para cada uf
+  for resultado in ufs:
 
     url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
 
@@ -59,7 +59,7 @@ for resultado in ufs:
     request = Request(url, urlencode(data).encode())
 
     result = urlopen(request).read()
-    
+
     result = str(result)
     
     #Tratando os caracteres especiais

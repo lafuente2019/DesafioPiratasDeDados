@@ -50,6 +50,7 @@ with open(arquivos, 'r') as arquivo:
         ufs.extend(itens)
 
  #Iteração para cada uf
+ 
   for resultado in ufs:
 
     url = 'https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm'
